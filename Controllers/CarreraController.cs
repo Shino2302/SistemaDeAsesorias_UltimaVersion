@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaDeAsesorias.Datos.Contrato;
 using SistemaDeAsesorias.Models;
 namespace SistemaDeAsesorias.Controllers
@@ -30,6 +31,24 @@ namespace SistemaDeAsesorias.Controllers
                 // Manejar el caso en que la eliminación no fue exitosa
                 return RedirectToAction("Listar");
             }
+        }
+        public IActionResult Guardar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Guardar(Carrera model)
+        {
+            bool carreraGuardado = _carrera.Guardar(model);
+            if (carreraGuardado)
+            {
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }

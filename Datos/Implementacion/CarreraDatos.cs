@@ -35,7 +35,22 @@ namespace SistemaDeAsesorias.Datos.Implementacion
         }
         public bool Guardar(Carrera model)
         {
-        throw new NotImplementedException();
+            using (var conexion = new SqlConnection(_cadenaSql))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("sp_AgregarCarrera", conexion);
+                cmd.Parameters.AddWithValue("Nombre", model.Nombre);
+                cmd.CommandType = CommandType.StoredProcedure;
+                int filaAfectada = cmd.ExecuteNonQuery();
+                if (filaAfectada > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
         public bool Eliminar(int idCarrera)
         {
