@@ -1,0 +1,43 @@
+﻿@model Asesor;
+@{
+    ViewData["Title"] = "Agregar Asesor";
+}
+<div class="card">
+    <div class="card-header">
+        <h1>Agregar Asesor</h1>
+    </div>
+    <div class="card-header">
+        <form asp-action="Guardar" asp-controller="Asesor" method="post">
+            <div class="form-group mb-2">
+                <label for="Nombres">Nombres: </label>
+                <input asp-for="Nombres" type="text" name="Nombres" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="ApePat">Apellido Paterno: </label>
+                <input asp-for="ApePat" type="text" name="ApePat" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="ApeMat">Apellido Materno: </label>
+                <input asp-for="ApeMat" type="text" name="ApeMat" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="CURP">CURP: </label>
+                <input asp-for="CURP" type="text" name="CURP" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="RFC">RFC: </label>
+                <input asp-for="RFC" type="text" name="RFC" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="Telefono">Telefono: </label>
+                <input asp-for="Telefono" type="text" name="Telefono" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="NivEstudios">Nivel de Estudios: </label>
+                <input asp-for="NivEstudios" type="text" name="NivEstudios" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+</div>

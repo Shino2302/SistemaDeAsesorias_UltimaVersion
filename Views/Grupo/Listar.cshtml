@@ -1,0 +1,36 @@
+@model List<Grupo>
+@{
+    ViewData["Title"] = "Listar";
+}
+<h1 class="text-center">Lista de Grupos</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id Grupo</th>
+                <th>Nombre </th>
+                <th>Cuatrimestre</th>
+                <th>Carrera</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdGrupo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCC1.IdCuatrimestre1.NroCuatrimestre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCC1.IdCarrera1.Nombre)</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                        <form asp-action="Eliminar" asp-controller="Grupo" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
+                            <input type="hidden" name="nroEmpleado" value="@item.IdGrupo" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+﻿@model List<Asesor>;
+@{
+    ViewData["Title"] = "Lista Asesores";
+}
+
+<h1 class="text-center">Lista de Asesores</h1>
+<a asp-action="Guardar" asp-controller="Asesor" class="btn btn-success btn-sm">Nuevo Asesor</a>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>N&uacute;mero de Empleado</th>
+                <th>Nombres</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>CURP</th>
+                <th>RFC</th>
+                <th>Telefono</th>
+                <th>Nivel de Estudios</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NroEmpleado)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ApePat)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ApeMat)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CURP)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RFC)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NivEstudios)</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                        <form asp-action="Eliminar" asp-controller="Asesor" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
+                            <input type="hidden" name="nroEmpleado" value="@item.NroEmpleado" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

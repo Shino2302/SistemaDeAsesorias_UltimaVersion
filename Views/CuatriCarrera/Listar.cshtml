@@ -1,0 +1,35 @@
+@model List<CuatriCarrera>;
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1 class="text-center">Lista CuatriCarrera</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id. CC</th>
+                <th>Nombre Carrera</th>
+                <th>Nro Cuatrimestre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdCC)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCarrera1.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCuatrimestre1.NroCuatrimestre)</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                        <form asp-action="Eliminar" asp-controller="CuatriCarrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
+                            <input type="hidden" name="nroEmpleado" value="@item.IdCC" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

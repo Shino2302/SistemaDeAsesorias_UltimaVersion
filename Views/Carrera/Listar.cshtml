@@ -1,0 +1,32 @@
+@model List<Carrera>;
+@{
+    ViewData["Title"] = "Listar";
+}
+<h1 class="text-center">Lista de Carreras</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id. Carrera</th>
+                <th>Nombre Carrera</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var carrera in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => carrera.IdCarrera)</td>
+                    <td>@Html.DisplayFor(modelItem => carrera.Nombre)</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                        <form asp-action="Eliminar" asp-controller="Carrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
+                            <input type="hidden" name="nroEmpleado" value="@carrera.IdCarrera" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

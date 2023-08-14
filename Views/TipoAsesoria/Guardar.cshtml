@@ -1,0 +1,19 @@
+﻿@model TipoAsesoria;
+@{
+    ViewData["Title"] = "Agregar Tipo de Asesoria";
+}
+<div class="card">
+    <div class="card-header">
+        <h1>Agregar Tipo de Asesoria</h1>
+    </div>
+    <div class="card-header">
+        <form asp-action="Guardar" asp-controller="TipoAsesoria" method="post">
+            <div class="form-group mb-2">
+                <label for="Tipo">Tipo: </label>
+                <input asp-for="Tipo" type="text" name="Tipo" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+</div>

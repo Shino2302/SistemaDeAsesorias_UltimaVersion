@@ -1,0 +1,30 @@
+﻿@model List<TipoAsesoria>;
+@{
+    ViewData["Title"] = "Listar tipos de Asesorias";
+}
+<a asp-action="Guardar" asp-controller="TipoAsesoria" class="btn btn-success btn-sm">Nueva Asesoria</a>
+<h1 class="text-center">Lista de Tipos de Asesorias</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id. Tipo de Asesoria</th>
+                <th>Tipo de Asesoria</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IdTA)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+                    <td>
+                        <button asp-acion="" asp-controller="" class="btn btn-warning btn-sm">Editar</button>
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
