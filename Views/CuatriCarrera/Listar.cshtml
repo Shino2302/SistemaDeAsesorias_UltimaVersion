@@ -23,8 +23,8 @@
                     <td>@Html.DisplayFor(modelItem => item.IdCuatrimestre1.NroCuatrimestre)</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Editar</button>
-                        <form asp-action="Eliminar" asp-controller="CuatriCarrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
-                            <input type="hidden" name="nroEmpleado" value="@item.IdCC" />
+                        <form asp-action="Eliminar" asp-controller="CuatriCarrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este CC?');">
+                            <input type="hidden" name="IdCC" value="@item.IdCC" />
                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                         </form>>
                     </td>

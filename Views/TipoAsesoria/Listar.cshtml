@@ -21,7 +21,10 @@
                     <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
                     <td>
                         <button asp-acion="" asp-controller="" class="btn btn-warning btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                        <form asp-action="Eliminar" asp-controller="TipoAsesoria" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este tipo de asesoria?');">
+                            <input type="hidden" name="IdTA" value="@item.IdTA" />
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>>
                     </td>
                 </tr>
             }

@@ -20,8 +20,8 @@
                     <td>@Html.DisplayFor(modelItem => carrera.Nombre)</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Editar</button>
-                        <form asp-action="Eliminar" asp-controller="Carrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
-                            <input type="hidden" name="nroEmpleado" value="@carrera.IdCarrera" />
+                        <form asp-action="Eliminar" asp-controller="Carrera" method="post" onsubmit="return confirm('¿Estás seguro de eliminar esta carrera?');">
+                            <input type="hidden" name="IdCarrera" value="@carrera.IdCarrera" />
                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                         </form>
                     </td>

@@ -32,8 +32,8 @@
                     <td>@Html.DisplayFor(modelItem => item.IdGrupo1.Nombre)</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Editar</button>
-                        <form asp-action="Eliminar" asp-controller="Alumno" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este asesor?');">
-                            <input type="hidden" name="nroEmpleado" value="@item.Matricula" />
+                        <form asp-action="Eliminar" asp-controller="Alumno" method="post" onsubmit="return confirm('¿Estás seguro de eliminar a este alumno?');">
+                            <input type="hidden" name="Matricula" value="@item.Matricula" />
                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                         </form>
                     </td>
