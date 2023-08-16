@@ -6,4 +6,8 @@ namespace SistemaDeAsesorias.Datos.Contrato
         bool Guardar(T Model);
         bool Eliminar(int id);
     }
+    public interface InterMultiDatos<T> where T : class
+    {
+        List<T> GetList();
+    }
 }

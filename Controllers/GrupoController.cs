@@ -7,14 +7,13 @@ namespace SistemaDeAsesorias.Controllers
 {
     public class GrupoController : Controller
     {
-        private IGenericDatos<Grupo> _grupo;
+        private InterMultiDatos<ConsultaGrupoModel> _grupo;
         private IGenericDatos<CuatriCarrera> _cuatriCarrera;
-        public GrupoController(IGenericDatos<Grupo> grupo, IGenericDatos<CuatriCarrera> cuatriCarrera){
+        public GrupoController(InterMultiDatos<ConsultaGrupoModel> grupo){
             _grupo = grupo;
-            _cuatriCarrera = cuatriCarrera;
         }
         public IActionResult Listar(){
-            List<Grupo> lista = _grupo.GetList();
+            List<ConsultaGrupoModel> lista = _grupo.GetList();
             return View(lista);
         }
         public IActionResult Guardar(){
@@ -29,6 +28,7 @@ namespace SistemaDeAsesorias.Controllers
             ViewBag.Lista = listC;
             return View();
         }
+        /*
         [HttpPost]
         public IActionResult Guardar(Grupo model){
             bool grupoGuardado = _grupo.Guardar(model);
@@ -55,5 +55,6 @@ namespace SistemaDeAsesorias.Controllers
                 return RedirectToAction("Listar");
             }
         }
+        */
     }
 }

@@ -1,6 +1,6 @@
-@model List<Grupo>
+@model List<ConsultaGrupoModel>;
 @{
-    ViewData["Title"] = "Listar";
+    ViewData["Title"] = "Lista de grupos";
 }
 <h1 class="text-center">Lista de Grupos</h1>
 <div>
@@ -19,9 +19,9 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.IdGrupo)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IdCC1.IdCuatrimestre1.NroCuatrimestre)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IdCC1.IdCarrera1.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Grupo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cuatrimestre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Carrera)</td>
                     <td>
                         <button class="btn btn-warning btn-sm">Editar</button>
                         <form asp-action="Eliminar" asp-controller="Grupo" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este grupo?');">
