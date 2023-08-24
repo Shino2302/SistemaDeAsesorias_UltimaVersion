@@ -1,0 +1,32 @@
+﻿@model List<HorarioPorAsesor>;
+@{
+    ViewData["Title"] = "Horario";
+}
+
+<h1 class="text-center">Horario de: @Model.FirstOrDefault()?.Nombres</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hora</th>
+            <th>Minutos</th>
+            <th>Día</th>
+            <th>Materia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var horario in Model)
+        {
+            <tr>
+                <td>@horario.Hora</td>
+                <td>@horario.Minutos</td>
+                <td>@horario.Dia</td>
+                <td>@horario.Materia</td>
+            </tr>
+            <form asp-action="Eliminar" asp-controller="Carrera" method="post">
+                <input type="hidden" name="IdCarrera" value="@horario.Materia" />
+                <button type="submit" class="btn btn-danger btn-sm">Solicitar</button>
+            </form>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@model List<Asesor>;
+@{
+    ViewData["Title"] = "Seleccion de Asesor";
+}
+<h1>Seleccion de Asesor: </h1>
+<div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Nivel de Estudios</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
+                <td>@Html.DisplayFor(modelItem => item.ApePat)</td>
+                <td>@Html.DisplayFor(modelItem => item.ApeMat)</td>
+                <td>@Html.DisplayFor(modelItem => item.NivEstudios)</td>
+                    <td>
+                        <!-- Enlace para redireccionar al horario con el ID del asesor -->
+                        <a href="@Url.Action("Horario", "Horario", new { NroEmpleado = item.NroEmpleado })">Ver Horario</a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

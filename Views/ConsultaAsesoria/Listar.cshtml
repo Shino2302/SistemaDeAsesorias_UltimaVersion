@@ -1,0 +1,48 @@
+﻿@model List<ConsultaAsesoria>;
+@{
+    /*poner el mismo nombre en el procedimiento almacenado en la base de datos*/
+    ViewData["Title"] = "ConsultaAsesoria";
+}
+<div class="card">
+    <div class="card-header">
+        <h1>Info.Asesoria</h1>
+    </div>
+    <div class="card-header">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Participantes</th>
+                    <th>Tipo</th>
+                    <th>Modalidad</th>
+                    <th>Asesor</th>
+                    <th>Materia</th>
+                    <th>ID Alumno</th>
+                    <th>Alumno(s)</th>
+                    <th>Grupo</th>
+                    <th>Dia</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Participantes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Modalidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Asesor)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Materia)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdAlumno)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Alumno_s)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Grupo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Dia)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hora)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
